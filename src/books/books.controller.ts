@@ -14,6 +14,7 @@ import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { ListBooksQueryDto } from './dto/list-books-query.dto';
+import { SkipThrottle, Throttle } from '@nestjs/throttler';
 
 @Controller('books') // todas las rutas de esta clase empiezan por /api/books
 export class BooksController {
@@ -51,4 +52,5 @@ export class BooksController {
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.booksService.remove(id);
   }
+  
 }
